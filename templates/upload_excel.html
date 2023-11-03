@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Excel</title>
+</head>
+<body>
+    <h1>Upload an Excel File</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if result_file_url %}
+    <script>
+        // 결과 파일 다운로드를 자동으로 시작
+        window.location.href = "{{ result_file_url }}";
+    </script>
+    {% endif %}
+</body>
+</html>
+
+
